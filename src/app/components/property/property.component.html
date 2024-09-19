@@ -1,0 +1,51 @@
+<form (ngSubmit)="insertData()">
+    <div class="form-group">
+        <label for="name">Enter Name</label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="property.name">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Enter description</label>
+        <input type="text" name="description" class="form-control" [(ngModel)]="property.description">
+    </div>
+   <div class="form-group">
+        <label for="name">Enter Location</label>
+        <input type="text" name="location" class="form-control" [(ngModel)]="property.location">
+    </div>
+   <div class="form-group">
+        <label for="name">Enter price</label>
+        <input type="text" name="price" class="form-control" [(ngModel)]="property.price">
+    </div>
+
+
+
+    <button class="btn btn-primary btn-sm mt-4">Submit</button>
+
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prop of propertys">
+            <td>{{ prop.id }}</td>
+            <td>{{ prop.name }}</td>
+            <td>{{ prop.description }}</td>
+            <td>{{ prop.price }}</td>
+            <td>{{ prop.location }}</td>
+            <td>
+                <button class="btn btn-warning btn-sm mx-2" routerLink="edit/{{ prop.id }}">Edit</button>
+                <button class="btn btn-danger btn-sm mz-2" (click)="deleteData(prop.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
