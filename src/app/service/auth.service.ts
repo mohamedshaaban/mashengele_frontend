@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
 
   // Variables
-  authUrl = 'http://127.0.0.1:8001/api/login';
-  apiUrl = 'http://127.0.0.1:8001/api';
+  authUrl = 'http://51.21.7.155/api/login';
+  apiUrl = 'http://51.21.7.155/api';
 
   /**
    * Constructor

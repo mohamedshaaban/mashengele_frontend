@@ -7,33 +7,34 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DataService {
 
-  constructor(private httpclient: HttpClient) { }
+  // constructor(private httpclient: HttpClient) { }
+  constructor( private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
       Accept: 'application/json',
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '+localStorage.getItem('access_token'),
-      'Access-Control-Allow-Origin': '*' ,
+      'Access-Control-Allow-Origin': '*',
     }),
   };
 
   getData(){
-    return this.httpclient.get('http://127.0.0.1:8001/api/properties/',this.httpOptions);
+    return this.http.get('http://51.21.7.155/api/properties',this.httpOptions);
   }
 
   insertData(data:any){
-    return this.httpclient.post('http://127.0.0.1:8001/api/properties/',data,this.httpOptions);
+    return this.http.post('http://51.21.7.155/api/properties', JSON.stringify(data),this.httpOptions);
   }
 
   deleteData(id:any) {
-    return this.httpclient.delete('http://127.0.0.1:8001/api/properties/'+id,this.httpOptions);
+    return this.http.delete('http://51.21.7.155/api/properties/'+id,this.httpOptions);
   }
 
   getPropertyByID(id:any){
-    return this.httpclient.get('http://127.0.0.1:8001/api/properties/'+id,this.httpOptions);
+    return this.http.get('http://51.21.7.155/api/properties/'+id,this.httpOptions);
   }
 
   updateData(id:any,data:any){
-    return this.httpclient.put('http://127.0.0.1:8001/api/properties/'+id, JSON.stringify(data),this.httpOptions);
+    return this.http.put('http://51.21.7.155/api/properties/'+id, JSON.stringify(data),this.httpOptions);
   }
 }
